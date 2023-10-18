@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdiControler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,3 +79,21 @@ Route::get('/fakultas', function(){
     $fakultas = ["Fakultas Ilmu Komputer Dan Rekayasa", "Fakultas Ilmu Ekonomi"];
     return view('fakultas.index', compact('fakultas', 'kampus'));
 });
+
+Route::get('/prodi',[ProdiControler::class, 'index']);
+
+//gunakan php artisan make:controller KurikulumController –-resource
+
+Route::resource("/kurikulum",KurikulomControler::class);
+
+//tes di browser dengan Mengunjungi:
+// http://localhost/kurikulum
+// http://localhost/kurikulum/create
+// http://localhost/kurikulum/1000
+// http://localhost/kurikulum/1000/edit
+
+
+//gunaka php artisan make:controller DosenController --api
+Route::apiResource("/dosen",DosenControler::class);
+//tes di browser menggunakan:
+// http://localhost/dosen/
