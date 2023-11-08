@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MahasiswaControler;
 use App\Http\Controllers\ProdiControler;
+use App\Http\Controllers\ProdiController;
 use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Route;
 
@@ -104,3 +105,11 @@ Route::get("mahasiswa/insert-qb",[MahasiswaControler::class,'insertElq']);
 Route::get("mahasiswa/update-qb",[MahasiswaControler::class,'updateElq']);
 Route::get("mahasiswa/delete-qb",[MahasiswaControler::class,'deleteElq']);
 Route::get("mahasiswa/select-qb",[MahasiswaControler::class,'selectElq']);
+
+
+Route::get('/prodi/all-join-facade', [ProdiController::class, 'allJoinFacade']);
+
+Route::get('/prodi/create',[ProdiController::class,'create']);
+
+Route::post('/prodi/store', [ProdiController::class, 'store']);
+
